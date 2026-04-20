@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<!-- saved from url=(0046)file:///C:/Users/markm/Downloads/index_30.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>My Workspace</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -229,41 +229,38 @@
 </head>
 <body>
 <div class="topbar">
-  <button class="menu-btn" onclick="openDrawer()">☰</button>
+  <button class="menu-btn" onclick="openDrawer()">&#9776;</button>
   <h1>My Workspace</h1>
-  <span class="date-chip" id="today-chip">Sun, Apr 19, 2026</span>
-  <span id="sync-status" style="font-size: 11px; color: rgb(29, 158, 117);">✓ Synced</span>
+  <span class="date-chip" id="today-chip"></span>
+  <span id="sync-status" style="font-size:11px;color:var(--text3);">Loading...</span>
 </div>
 <div class="layout">
   <div class="sidebar">
     <div class="nav-section">Sections</div>
-    <button class="nav-item active" onclick="showPanel(&#39;todos&#39;)" id="nav-todos"><span class="nav-icon">☑</span> All tasks</button>
-    <button class="nav-item" onclick="showPanel(&#39;calendar&#39;)" id="nav-calendar"><span class="nav-icon">📅</span> Calendar</button>
-    <button class="nav-item" onclick="showPanel(&#39;purchases&#39;)" id="nav-purchases"><span class="nav-icon">🛒</span> Purchase lists</button>
+    <button class="nav-item active" onclick="showPanel('todos')" id="nav-todos"><span class="nav-icon">☑</span> All tasks</button>
+    <button class="nav-item" onclick="showPanel('calendar')" id="nav-calendar"><span class="nav-icon">📅</span> Calendar</button>
+    <button class="nav-item" onclick="showPanel('purchases')" id="nav-purchases"><span class="nav-icon">🛒</span> Purchase lists</button>
     <div class="proj-nav">
       <span class="proj-nav-label">Projects</span>
       <button class="proj-add-btn" onclick="openNewProject()" title="New project">+</button>
     </div>
-    <div id="proj-list"><div style="font-size:12px;color:var(--text3);padding:6px 14px;">No projects yet</div></div>
+    <div id="proj-list"></div>
   </div>
   <div class="main">
 
     <!-- ALL TASKS -->
     <div class="panel active" id="panel-todos">
-      <div class="stats-row" id="todo-stats">
-    <div class="stat-card"><div class="stat-num">0</div><div class="stat-label">Open tasks</div></div>
-    <div class="stat-card"><div class="stat-num">0</div><div class="stat-label">High priority</div></div>
-    <div class="stat-card"><div class="stat-num">0</div><div class="stat-label">Completed</div></div></div>
+      <div class="stats-row" id="todo-stats"></div>
       <div class="add-row">
-        <input type="text" id="todo-input" placeholder="Add a task...">
-        <select id="todo-project" style="flex:0 0 150px;"><option value="">— No project —</option></select>
+        <input type="text" id="todo-input" placeholder="Add a task..." />
+        <select id="todo-project" style="flex:0 0 150px;"></select>
         <select id="todo-priority" style="flex:0 0 105px;">
           <option value="med">Medium</option><option value="high">High</option><option value="low">Low</option>
         </select>
         <button class="btn-primary" onclick="addTodo()">+ Add</button>
       </div>
-      <div class="filter-row" id="filter-row"><span class="filter-chip active" onclick="setFilter(&#39;all&#39;)">All tasks</span><span class="filter-chip" onclick="setFilter(&#39;none&#39;)">No project</span></div>
-      <div id="todo-list"><div class="empty-state">No tasks here yet — add one above.</div></div>
+      <div class="filter-row" id="filter-row"></div>
+      <div id="todo-list"></div>
     </div>
 
     <!-- PROJECT VIEW -->
@@ -273,7 +270,7 @@
 
       <div class="section-divider">Tasks</div>
       <div class="add-row">
-        <input type="text" id="proj-todo-input" placeholder="Add a task to this project...">
+        <input type="text" id="proj-todo-input" placeholder="Add a task to this project..." />
         <select id="proj-todo-priority" style="flex:0 0 105px;">
           <option value="med">Medium</option><option value="high">High</option><option value="low">Low</option>
         </select>
@@ -284,9 +281,9 @@
       <div class="section-divider">🛒 Purchase list for this project</div>
       <p class="hint" style="margin-bottom:12px;">Items added here also appear in the main Purchase Lists section.</p>
       <div class="add-row">
-        <input type="text" id="proj-item-input" placeholder="Item name...">
-        <input type="number" id="proj-item-qty" placeholder="Qty" style="flex:0 0 62px;" min="1" value="1">
-        <input type="number" id="proj-item-cost" placeholder="Cost $" style="flex:0 0 80px;" min="0" step="0.01">
+        <input type="text" id="proj-item-input" placeholder="Item name..." />
+        <input type="number" id="proj-item-qty" placeholder="Qty" style="flex:0 0 62px;" min="1" value="1" />
+        <input type="number" id="proj-item-cost" placeholder="Cost $" style="flex:0 0 80px;" min="0" step="0.01" />
         <button class="btn-primary" onclick="addProjItem()">+ Add item</button>
       </div>
       <div class="card"><div id="proj-item-list"><div class="empty-state" style="padding:16px 0;">No items yet.</div></div></div>
@@ -302,90 +299,30 @@
       </div>
       <div class="cal-header">
         <div class="cal-nav">
-          <button onclick="calNav(-1)">←</button>
-          <span class="cal-month" id="cal-month-label">April 2026</span>
-          <button onclick="calNav(1)">→</button>
+          <button onclick="calNav(-1)">&#8592;</button>
+          <span class="cal-month" id="cal-month-label"></span>
+          <button onclick="calNav(1)">&#8594;</button>
         </div>
-        <a href="https://calendar.google.com/" target="_blank" class="gcal-open-btn">
+        <a href="https://calendar.google.com" target="_blank" class="gcal-open-btn">
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="1" y="2" width="14" height="13" rx="2" stroke="currentColor" stroke-width="1.3" fill="none"></rect>
-            <path d="M1 6h14" stroke="currentColor" stroke-width="1.3"></path>
-            <path d="M5 1v3M11 1v3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path>
+            <rect x="1" y="2" width="14" height="13" rx="2" stroke="currentColor" stroke-width="1.3" fill="none"/>
+            <path d="M1 6h14" stroke="currentColor" stroke-width="1.3"/>
+            <path d="M5 1v3M11 1v3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
           </svg>
           Open Google Calendar
         </a>
       </div>
-      <div class="card"><div class="cal-grid" id="cal-grid"><div class="cal-dow">Su</div><div class="cal-dow">Mo</div><div class="cal-dow">Tu</div><div class="cal-dow">We</div><div class="cal-dow">Th</div><div class="cal-dow">Fr</div><div class="cal-dow">Sa</div><div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-01&#39;)">
-      <span>1</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-02&#39;)">
-      <span>2</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-03&#39;)">
-      <span>3</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-04&#39;)">
-      <span>4</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-05&#39;)">
-      <span>5</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-06&#39;)">
-      <span>6</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-07&#39;)">
-      <span>7</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-08&#39;)">
-      <span>8</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-09&#39;)">
-      <span>9</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-10&#39;)">
-      <span>10</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-11&#39;)">
-      <span>11</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-12&#39;)">
-      <span>12</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-13&#39;)">
-      <span>13</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-14&#39;)">
-      <span>14</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-15&#39;)">
-      <span>15</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-16&#39;)">
-      <span>16</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-17&#39;)">
-      <span>17</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-18&#39;)">
-      <span>18</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-19&#39;)">
-      <span>19</span>
-    </div><div class="cal-day today" style="" onclick="pickDay(&#39;2026-04-20&#39;)">
-      <span>20</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-21&#39;)">
-      <span>21</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-22&#39;)">
-      <span>22</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-23&#39;)">
-      <span>23</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-24&#39;)">
-      <span>24</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-25&#39;)">
-      <span>25</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-26&#39;)">
-      <span>26</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-27&#39;)">
-      <span>27</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-28&#39;)">
-      <span>28</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-29&#39;)">
-      <span>29</span>
-    </div><div class="cal-day" style="" onclick="pickDay(&#39;2026-04-30&#39;)">
-      <span>30</span>
-    </div></div></div>
-      <div class="day-panel" id="day-panel"><div class="selected-day-label">Monday, April 20</div><div class="empty-state" style="padding:16px 0;">Nothing scheduled.</div></div>
+      <div class="card"><div class="cal-grid" id="cal-grid"></div></div>
+      <div class="day-panel" id="day-panel"></div>
       <div style="margin-top:16px;border-top:1px solid var(--border);padding-top:16px;">
         <div style="font-size:12px;font-weight:500;color:var(--text2);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.05em;">Add calendar event</div>
         <div class="add-row">
-          <input type="text" id="event-title" placeholder="Event name...">
-          <input type="date" id="event-date" style="flex:0 0 150px;">
+          <input type="text" id="event-title" placeholder="Event name..." />
+          <input type="date" id="event-date" style="flex:0 0 150px;" />
         </div>
         <div class="add-row">
-          <input type="time" id="event-time" style="flex:0 0 130px;">
-          <input type="text" id="event-location" placeholder="Location (optional)">
+          <input type="time" id="event-time" style="flex:0 0 130px;" />
+          <input type="text" id="event-location" placeholder="Location (optional)" />
           <button class="btn-primary" onclick="addEvent()">+ Add event</button>
         </div>
         <p class="hint">Time and location are passed to Google Calendar for SMS reminders.</p>
@@ -394,20 +331,17 @@
 
     <!-- PURCHASES -->
     <div class="panel" id="panel-purchases">
-      <div class="stats-row" id="purch-stats">
-    <div class="stat-card"><div class="stat-num">0</div><div class="stat-label">Total items</div></div>
-    <div class="stat-card"><div class="stat-num">0</div><div class="stat-label">Still needed</div></div>
-    <div class="stat-card"><div class="stat-num">—</div><div class="stat-label">Est. remaining</div></div></div>
+      <div class="stats-row" id="purch-stats"></div>
       <div class="add-row">
-        <input type="text" id="purchase-input" placeholder="Item name...">
-        <input type="number" id="purchase-qty" placeholder="Qty" style="flex:0 0 70px;" min="1" value="1">
+        <input type="text" id="purchase-input" placeholder="Item name..." />
+        <input type="number" id="purchase-qty" placeholder="Qty" style="flex:0 0 70px;" min="1" value="1" />
         <select id="purchase-cat" style="flex:0 0 140px;">
           <option>Groceries</option><option>Hardware</option><option>Office</option>
           <option>Maintenance</option><option>Supplies</option><option>Other</option>
         </select>
         <button class="btn-primary" onclick="addPurchase()">+ Add item</button>
       </div>
-      <div id="purchase-list"><div class="empty-state">No items yet — add one above.</div></div>
+      <div id="purchase-list"></div>
     </div>
   </div>
 </div>
@@ -417,26 +351,26 @@
 <div class="drawer" id="drawer">
   <div class="drawer-header">
     <h2>My Workspace</h2>
-    <button class="drawer-close" onclick="closeDrawer()">✕</button>
+    <button class="drawer-close" onclick="closeDrawer()">&#x2715;</button>
   </div>
   <div class="drawer-body">
     <div class="drawer-section">Sections</div>
-    <button class="drawer-nav-item" onclick="showPanel(&#39;todos&#39;);closeDrawer();" id="dnav-todos"><span style="font-size:15px;width:20px;text-align:center;">☑</span> All tasks</button>
-    <button class="drawer-nav-item" onclick="showPanel(&#39;calendar&#39;);closeDrawer();" id="dnav-calendar"><span style="font-size:15px;width:20px;text-align:center;">📅</span> Calendar</button>
-    <button class="drawer-nav-item" onclick="showPanel(&#39;purchases&#39;);closeDrawer();" id="dnav-purchases"><span style="font-size:15px;width:20px;text-align:center;">🛒</span> Purchase lists</button>
+    <button class="drawer-nav-item" onclick="showPanel('todos');closeDrawer();" id="dnav-todos"><span style="font-size:15px;width:20px;text-align:center;">☑</span> All tasks</button>
+    <button class="drawer-nav-item" onclick="showPanel('calendar');closeDrawer();" id="dnav-calendar"><span style="font-size:15px;width:20px;text-align:center;">📅</span> Calendar</button>
+    <button class="drawer-nav-item" onclick="showPanel('purchases');closeDrawer();" id="dnav-purchases"><span style="font-size:15px;width:20px;text-align:center;">🛒</span> Purchase lists</button>
     <div class="drawer-proj-add">
       <span class="drawer-proj-label">Projects</span>
       <button class="proj-add-btn" onclick="openNewProject()" title="New project">+</button>
     </div>
-    <div id="drawer-proj-list"><div style="font-size:12px;color:var(--text3);padding:6px 14px;">No projects yet</div></div>
+    <div id="drawer-proj-list"></div>
   </div>
 </div>
 
 <!-- MOBILE NAV -->
 <div class="mobile-nav">
-  <button onclick="showPanel(&#39;todos&#39;)" id="mnav-todos" class="active"><span class="micon">☑</span>Tasks</button>
-  <button onclick="showPanel(&#39;calendar&#39;)" id="mnav-calendar"><span class="micon">📅</span>Calendar</button>
-  <button onclick="showPanel(&#39;purchases&#39;)" id="mnav-purchases"><span class="micon">🛒</span>Shopping</button>
+  <button onclick="showPanel('todos')" id="mnav-todos" class="active"><span class="micon">☑</span>Tasks</button>
+  <button onclick="showPanel('calendar')" id="mnav-calendar"><span class="micon">📅</span>Calendar</button>
+  <button onclick="showPanel('purchases')" id="mnav-purchases"><span class="micon">🛒</span>Shopping</button>
 </div>
 
 <!-- TASK EDIT MODAL -->
@@ -444,22 +378,22 @@
   <div class="modal" onclick="event.stopPropagation()">
     <div class="modal-header">
       <h3 id="modal-task-title">Edit task</h3>
-      <button class="modal-close" onclick="closeTaskModal()">✕</button>
+      <button class="modal-close" onclick="closeTaskModal()">&#x2715;</button>
     </div>
     <div class="modal-tabs">
-      <button class="modal-tab active" onclick="switchTab(&#39;details&#39;)">Details</button>
-      <button class="modal-tab" onclick="switchTab(&#39;items&#39;)">🛒 Purchase list</button>
-      <button class="modal-tab" onclick="switchTab(&#39;notes&#39;)">💬 Notes</button>
+      <button class="modal-tab active" onclick="switchTab('details')">Details</button>
+      <button class="modal-tab" onclick="switchTab('items')">🛒 Purchase list</button>
+      <button class="modal-tab" onclick="switchTab('notes')">💬 Notes</button>
     </div>
     <div class="modal-tab-panel active" id="tab-details">
-      <div><div class="field-label">Task name</div><input type="text" id="edit-text"></div>
+      <div><div class="field-label">Task name</div><input type="text" id="edit-text" /></div>
       <div class="field-row">
-        <div><div class="field-label">Project</div><select id="edit-project"><option value="">No project</option></select></div>
+        <div><div class="field-label">Project</div><select id="edit-project"></select></div>
         <div><div class="field-label">Priority</div><select id="edit-priority"><option value="high">High</option><option value="med">Medium</option><option value="low">Low</option></select></div>
       </div>
       <div class="field-row">
         <div><div class="field-label">Status</div><select id="edit-status"><option value="todo">To do</option><option value="inprogress">In progress</option><option value="blocked">Blocked</option><option value="done">Done</option></select></div>
-        <div><div class="field-label">Due date</div><input type="date" id="edit-due"></div>
+        <div><div class="field-label">Due date</div><input type="date" id="edit-due" /></div>
       </div>
     </div>
     <div class="modal-tab-panel" id="tab-items">
@@ -467,9 +401,9 @@
         <div class="field-label">Items for this task <span style="font-weight:400;text-transform:none;font-size:11px;color:var(--text3);">— also shown in Purchase Lists</span></div>
         <div id="task-items-list"></div>
         <div class="task-add-item-row">
-          <input type="text" id="task-item-input" placeholder="Item name...">
-          <input type="number" id="task-item-qty" placeholder="Qty" style="flex:0 0 60px;" min="1" value="1">
-          <input type="number" id="task-item-cost" placeholder="Cost $" style="flex:0 0 80px;" min="0" step="0.01">
+          <input type="text" id="task-item-input" placeholder="Item name..." />
+          <input type="number" id="task-item-qty" placeholder="Qty" style="flex:0 0 60px;" min="1" value="1" />
+          <input type="number" id="task-item-cost" placeholder="Cost $" style="flex:0 0 80px;" min="0" step="0.01" />
           <button class="btn-primary" onclick="addTaskItem()">+ Add</button>
         </div>
       </div>
@@ -496,12 +430,12 @@
   <div class="modal modal-sm" onclick="event.stopPropagation()" style="max-width:340px;">
     <div class="modal-header">
       <h3>New project</h3>
-      <button class="modal-close" onclick="closeModal()">✕</button>
+      <button class="modal-close" onclick="closeModal()">&#x2715;</button>
     </div>
     <div style="padding:18px 20px;display:flex;flex-direction:column;gap:14px;">
       <div>
         <div class="field-label">Project name</div>
-        <input type="text" id="proj-name-input" placeholder="e.g. Unit 1A, Repairs..." maxlength="40" autocomplete="off">
+        <input type="text" id="proj-name-input" placeholder="e.g. Unit 1A, Repairs..." maxlength="40" autocomplete="off" />
       </div>
       <div>
         <div class="field-label">Color</div>
@@ -906,6 +840,7 @@ function todoCard(t,showProj){
       <span class="status-badge status-${t.status||'todo'}">${statusLabel(t.status||'todo')}</span>
       ${showProj&&p?`<span class="proj-badge" style="background:${p.color}22;color:${p.color}">${escH(p.name)}</span>`:''}
       ${due?`<span class="due-badge${due.cls==='overdue'?' overdue':''}">${due.text}</span>`:''}
+      ${t.due&&!t.done?`<a href="${makeGCalLink(t.text,t.due,'','')}" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:2px 7px;border-radius:10px;border:1px solid var(--info-border);color:var(--info-text);background:var(--info-bg);text-decoration:none;"><svg width="10" height="10" viewBox="0 0 16 16" fill="none"><rect x="1" y="2" width="14" height="13" rx="2" stroke="currentColor" stroke-width="1.4" fill="none"/><path d="M1 6h14" stroke="currentColor" stroke-width="1.4"/><path d="M5 1v3M11 1v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>Add to Cal</a>`:''}
       ${hasC?`<button class="comment-toggle" onclick="openTaskModal(${t.id});setTimeout(()=>switchTab('notes'),50)">💬 ${t.comments.length}</button>`:''}
       ${hasI?`<button class="comment-toggle" onclick="openTaskModal(${t.id});setTimeout(()=>switchTab('items'),50)">🛒 ${remaining} left</button>`:''}
     </div>
@@ -1176,6 +1111,5 @@ async function init(){
 }
 init();
 </script>
-
-
-</body></html>
+</body>
+</html>
